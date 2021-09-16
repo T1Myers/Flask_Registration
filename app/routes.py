@@ -32,7 +32,6 @@ def about():
 def contact():
     return render_template('contact.html')
 
-<<<<<<< HEAD
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -63,24 +62,10 @@ def logout():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
-        first_name = request.form.get('first name')
-        last_name = request.form.get('last name')
-        email = request.form.get('email')
-        password = request.form.get('password')
-        confirm_password = request.form.get('confirm password')
-        # look for the user in our database
-        user = User.query.filter_by(email=email).first()
-        # if the password and/or confirm_password don't match,
-        if user is None or not user.check_password(password):
-            # show an error messages
-            flash("Your passwords don't match", 'danger')
-            # redirect to the register page
-            return redirect(url_for('register'))
-        # otherwise
-        # log the user in
-        login_user(user)
-        flash('You have registered successfully!', 'info')
-        return redirect(url_for('home'))
+        if request.form.get('password') != request.form.get('confirm_password'):
+            flash('Your password do not match.', 'danger')
+            return redirect(url_for('auth.login'))
+        print('It works!')
+        flash('User has registered succesfully', 'success')
+        return redirect(url_for('auth.login'))
     return render_template('register.html')
-=======
->>>>>>> 6271fe8217554b1d2f371e734a677a03334151e5
