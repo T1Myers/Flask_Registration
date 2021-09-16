@@ -48,3 +48,4 @@ def load_user(user_id):
 
 # REAL_PASSWORD = ABC123
 # salt = 84yar8h90fd9n80uO2YAH09
+#####

@@ -57,3 +57,26 @@ def logout():
     logout_user()
     flash('You have logged out successfully', 'primary')
     return redirect(url_for('home'))
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        first_name = request.form.get('first name')
+        last_name = request.form.get('last name')
+        email = request.form.get('email')
+        password = request.form.get('password')
+        confirm_password = request.form.get('confirm password')
+        # look for the user in our database
+        user = User.query.filter_by(email=email).first()
+        # if the password and/or confirm_password don't match,
+        if user is None or not user.check_password(password):
+            # show an error messages
+            flash("Your passwords don't match", 'danger')
+            # redirect to the register page
+            return redirect(url_for('register'))
+        # otherwise
+        # log the user in
+        login_user(user)
+        flash('You have registered successfully!', 'info')
+        return redirect(url_for('home'))
+    return render_template('register.html')
