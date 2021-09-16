@@ -1,8 +1,9 @@
+from app.blueprints.auth.models import User
 from flask.helpers import url_for
 import flask_login
-from app import app, db
-from flask import render_template, request, redirect, url_for, flash
-from app.models import Post, User
+from app import db
+from flask import current_app as app, render_template, request, redirect, url_for, flash
+from app.models import Post
 from flask_login import login_user, logout_user, current_user
 
 @app.route('/', methods=['GET', 'POST'])
