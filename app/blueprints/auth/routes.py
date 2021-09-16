@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # from app.models import User
+=======
+>>>>>>> 6271fe8217554b1d2f371e734a677a03334151e5
 from app.blueprints.auth.models import User
 from .import bp as app
 from flask import request, flash, redirect, url_for, render_template
@@ -29,5 +32,9 @@ def login():
 def logout():
     logout_user()
     flash('You have logged out successfully', 'primary')
+<<<<<<< HEAD
     return redirect(url_for('home'))
 
+=======
+    return redirect(url_for('home'))
+>>>>>>> 6271fe8217554b1d2f371e734a677a03334151e5

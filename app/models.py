@@ -11,6 +11,7 @@ class Post(db.Model):
     date_created = db.Column(db.DateTime(), default=dt.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
+<<<<<<< HEAD
 # class User(UserMixin, db.Model):
 #     id = db.Column(db.Integer, primary_key=True)
 #     first_name = db.Column(db.String(50))
@@ -28,6 +29,9 @@ class Post(db.Model):
 # @login_manager.user_loader
 # def load_user(user_id):
 #     return User.query.get(int(user_id))
+=======
+
+>>>>>>> 6271fe8217554b1d2f371e734a677a03334151e5
 
 # HASHING AND SALTING
 

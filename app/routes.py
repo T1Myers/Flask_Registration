@@ -32,6 +32,7 @@ def about():
 def contact():
     return render_template('contact.html')
 
+<<<<<<< HEAD
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -81,3 +82,5 @@ def register():
         flash('You have registered successfully!', 'info')
         return redirect(url_for('home'))
     return render_template('register.html')
+=======
+>>>>>>> 6271fe8217554b1d2f371e734a677a03334151e5
